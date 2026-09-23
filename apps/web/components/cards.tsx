@@ -43,7 +43,7 @@ export function ProjectCard({ project }: { project: Project }) {
           image={project.image}
           ratio="aspect-[16/10]"
           rounded="rounded-none"
-          imgClassName="transition-transform duration-500 group-hover:scale-105"
+          imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
         />
         <div className="absolute top-3 left-3">
           <StatusBadge status={project.status} className="bg-background/90 backdrop-blur-sm" />
@@ -84,7 +84,7 @@ export function StoryCard({ story }: { story: Story }) {
           image={story.image}
           ratio="aspect-[4/3]"
           rounded="rounded-none"
-          imgClassName="transition-transform duration-500 group-hover:scale-105"
+          imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">
@@ -119,7 +119,7 @@ export function TeamCard({ member }: { member: TeamMember }) {
           image={member.image}
           ratio="aspect-[4/5]"
           rounded="rounded-none"
-          imgClassName="transition-transform duration-500 group-hover:scale-105"
+          imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
         />
       </div>
       <div className="flex flex-1 flex-col p-5">

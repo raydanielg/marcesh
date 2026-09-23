@@ -72,7 +72,7 @@ export function GalleryBrowser({
         ))}
       </div>
 
-      <div className="mt-10 columns-1 gap-5 sm:columns-2 lg:columns-3">
+      <div className="mt-10 columns-2 gap-3 sm:gap-5 lg:columns-3">
         {filtered.map((item, i) => (
           <button
             key={item.id}
@@ -85,7 +85,7 @@ export function GalleryBrowser({
               image={item.image}
               ratio={ratios[i % ratios.length]}
               rounded="rounded-2xl"
-              imgClassName="transition-transform duration-500 group-hover:scale-105"
+              imgClassName="transition-transform duration-500 group-hover:scale-[1.03]"
             >
               {item.image.caption && (
                 <span className="absolute inset-x-0 bottom-0 translate-y-2 bg-gradient-to-t from-black/70 to-transparent p-4 pt-10 text-sm text-white opacity-0 transition-all duration-300 group-hover:translate-y-0 group-hover:opacity-100">

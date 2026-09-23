@@ -13,6 +13,7 @@ import {
   QuoteUpIcon,
 } from "@hugeicons/core-free-icons"
 import { SiteImage } from "@/components/site-image"
+import { HeroVideo } from "@/components/hero-video"
 import { Reveal } from "@/components/reveal"
 import { CountUp } from "@/components/count-up"
 import { SectionHeading } from "@/components/section-heading"
@@ -52,22 +53,19 @@ export default function HomePage() {
     <>
       <JsonLd data={faqSchema([...faqs])} />
       {/* ── Hero ─────────────────────────────────────────────── */}
-      <section className="relative flex min-h-[88vh] items-end overflow-hidden md:min-h-[85vh]">
+      <section className="relative flex min-h-[78svh] items-end overflow-hidden md:min-h-[85vh]">
         <div className="absolute inset-0">
-          <SiteImage
-            image={images.hero}
-            ratio="aspect-auto"
-            className="absolute inset-0"
-            rounded="rounded-none"
-            imgClassName="animate-hero-drift"
-            priority
+          <HeroVideo
+            src="/assets/videos/hero-video.mp4"
+            poster={images.hero.src!}
           />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-deep/95 via-deep/55 to-deep/25" />
+        <div className="absolute inset-0 bg-deep/25" />
+        <div className="absolute inset-0 bg-gradient-to-t from-deep/95 via-deep/45 to-deep/15" />
         <Container className="relative pb-16 md:pb-24">
           <div className="max-w-3xl">
             <Reveal variant="fade" delay={150}>
-              <span className="inline-flex items-center gap-2.5 rounded-full border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-sm">
+              <span className="inline-flex items-center gap-2.5 rounded-lg border border-white/20 bg-white/10 px-4 py-1.5 text-xs font-semibold tracking-[0.16em] text-white uppercase backdrop-blur-sm">
                 <span className="size-1.5 rounded-full bg-brand" />
                 {site.tagline}
               </span>
@@ -143,11 +141,11 @@ export default function HomePage() {
             <Reveal delay={120}>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                 Based in {site.location}, {site.name} works alongside communities to expand
-                access to education, improve health outcomes and support those most in need.
+                access to education, improve health outcomes and support those most in need,
                 building a society where everyone has a fair chance to thrive.
               </p>
             </Reveal>
-            <Reveal delay={220} className="mt-6 grid gap-4 sm:grid-cols-2">
+            <Reveal delay={220} className="mt-6 grid grid-cols-2 gap-4">
               <div className="rounded-xl border bg-card p-4">
                 <h3 className="text-sm font-semibold text-primary">Our Vision</h3>
                 <p className="mt-1.5 line-clamp-3 text-sm leading-relaxed text-muted-foreground">{site.vision}</p>
@@ -174,7 +172,7 @@ export default function HomePage() {
           title="Four areas. One purpose."
           description="Every initiative at Marcesh Foundation flows through four connected focus areas, each one strengthening the others."
         />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {programs.map((p, i) => (
             <Reveal key={p.slug} delay={i * 100}>
               <Link
@@ -182,7 +180,7 @@ export default function HomePage() {
                 className="group flex h-full flex-col overflow-hidden rounded-2xl border bg-card transition-all duration-300 hover:-translate-y-1.5 hover:shadow-[0_18px_44px_-18px_rgb(0_0_0/0.2)]"
               >
                 <div className="relative overflow-hidden">
-                  <SiteImage image={p.image} ratio="aspect-[16/10]" rounded="rounded-none" imgClassName="transition-transform duration-500 group-hover:scale-105" />
+                  <SiteImage image={p.image} ratio="aspect-[16/10]" rounded="rounded-none" imgClassName="transition-transform duration-500 group-hover:scale-[1.03]" />
                   <span className="absolute bottom-3 left-3 flex size-10 items-center justify-center rounded-xl bg-background/90 text-primary shadow-sm backdrop-blur-sm">
                     <HugeiconsIcon icon={programIcons[p.icon]} strokeWidth={1.8} className="size-5" />
                   </span>
@@ -223,9 +221,9 @@ export default function HomePage() {
               className="group relative flex h-full min-h-[320px] flex-col justify-end overflow-hidden rounded-3xl"
             >
               <div className="absolute inset-0">
-                <SiteImage image={featured.image} ratio="aspect-auto" className="absolute inset-0" rounded="rounded-none" imgClassName="transition-transform duration-700 group-hover:scale-105" />
+                <SiteImage image={featured.image} ratio="aspect-auto" className="absolute inset-0" rounded="rounded-none" imgClassName="transition-transform duration-700 group-hover:scale-[1.03]" />
               </div>
-              <div className="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/40 to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
               <div className="relative p-6">
                 <span className="rounded-full bg-brand px-3 py-1 text-xs font-semibold text-brand-foreground">
                   Featured Project
@@ -241,7 +239,7 @@ export default function HomePage() {
               </div>
             </Link>
           </Reveal>
-          <div className="grid gap-6 sm:grid-cols-2 lg:col-span-2">
+          <div className="grid grid-cols-2 gap-4 sm:gap-6 lg:col-span-2">
             {projects
               .filter((p) => p.slug !== featured.slug)
               .slice(0, 4)
@@ -365,9 +363,9 @@ export default function HomePage() {
           title="Choose how you&rsquo;ll make a difference"
           description="Whether you give, volunteer or partner, your contribution becomes someone's opportunity."
         />
-        <div className="grid gap-6 md:grid-cols-3">
+        <div className="grid grid-cols-2 gap-4 sm:gap-6 md:grid-cols-3">
           <Reveal>
-            <Link href="/donate" className="group flex h-full flex-col justify-between rounded-2xl bg-primary p-6 text-primary-foreground transition-all hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgb(30_90_60/0.5)]">
+            <Link href="/donate" className="group flex h-full flex-col justify-between rounded-2xl bg-primary p-6 text-primary-foreground transition-all hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgb(0_0_0/0.35)]">
               <div>
                 <h3 className="font-display text-xl font-semibold">Donate</h3>
                 <p className="mt-2 text-sm leading-relaxed text-primary-foreground/80">
@@ -381,7 +379,7 @@ export default function HomePage() {
             </Link>
           </Reveal>
           <Reveal delay={120}>
-            <Link href="/volunteer" className="group flex h-full flex-col justify-between rounded-2xl bg-brand p-6 text-brand-foreground transition-all hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgb(200_120_30/0.5)]">
+            <Link href="/volunteer" className="group flex h-full flex-col justify-between rounded-2xl bg-brand p-6 text-brand-foreground transition-all hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgb(0_0_0/0.35)]">
               <div>
                 <h3 className="font-display text-xl font-semibold">Volunteer</h3>
                 <p className="mt-2 text-sm leading-relaxed text-brand-foreground/80">
@@ -394,7 +392,7 @@ export default function HomePage() {
               </span>
             </Link>
           </Reveal>
-          <Reveal delay={240}>
+          <Reveal delay={240} className="max-md:col-span-2">
             <Link href="/partner" className="group flex h-full flex-col justify-between rounded-2xl border bg-card p-6 transition-all hover:-translate-y-1 hover:shadow-[0_18px_44px_-18px_rgb(0_0_0/0.2)]">
               <div>
                 <h3 className="font-display text-xl font-semibold">Partner With Us</h3>
@@ -422,7 +420,7 @@ export default function HomePage() {
             </Link>
           </Reveal>
         </div>
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-5 lg:grid-cols-4">
           {stories.slice(0, 4).map((s, i) => (
             <Reveal key={s.slug} delay={i * 90}>
               <StoryCard story={s} />

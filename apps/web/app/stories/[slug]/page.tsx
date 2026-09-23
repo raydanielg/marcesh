@@ -70,7 +70,7 @@ export default async function StoryDetailPage({
       <section className="relative">
         <div className="relative h-[52vh] min-h-[380px] w-full overflow-hidden">
           <SiteImage image={story.image} ratio="aspect-auto" className="absolute inset-0" rounded="rounded-none" priority imgClassName="animate-hero-drift" />
-          <div className="absolute inset-0 bg-gradient-to-t from-deep/90 via-deep/30 to-transparent" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
         </div>
         <Container className="relative">
           <div className="-mt-32 max-w-3xl">

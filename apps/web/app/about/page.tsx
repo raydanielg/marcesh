@@ -79,7 +79,7 @@ export default function AboutPage() {
             support for people in need, with a broader goal of promoting equality and
             sustainable development.
           </p>
-          <dl className="mt-5 grid gap-x-8 gap-y-3 text-sm sm:grid-cols-2 lg:grid-cols-4">
+          <dl className="mt-5 grid grid-cols-2 gap-x-8 gap-y-3 text-sm lg:grid-cols-4">
             <div>
               <dt className="font-semibold">Location</dt>
               <dd className="text-muted-foreground">{site.location}</dd>
@@ -196,7 +196,7 @@ export default function AboutPage() {
               </span>
             </Reveal>
           </div>
-          <ul className="grid gap-3 sm:grid-cols-2 lg:col-span-2">
+          <ul className="grid grid-cols-1 gap-3 sm:grid-cols-2 lg:col-span-2">
             {site.goals.map((g, i) => (
               <Reveal key={g} delay={i * 60} as="li">
                 <div className="flex h-full items-start gap-3 rounded-xl border bg-card p-4">
@@ -218,7 +218,7 @@ export default function AboutPage() {
           title="The principles we live by"
           description="Values aren't wall decoration. They're how we decide, serve and account for our work."
         />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
           {values.map((v, i) => (
             <Reveal
               key={v.key}
@@ -272,7 +272,7 @@ export default function AboutPage() {
       {/* Focus areas */}
       <Section>
         <SectionHeading eyebrow="Focus Areas" title="Where we put our energy" />
-        <div className="grid gap-5 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-2 gap-4 sm:gap-5 lg:grid-cols-4">
           {programs.map((p, i) => (
             <Reveal key={p.slug} delay={i * 80}>
               <Link

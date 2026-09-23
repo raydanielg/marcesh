@@ -117,7 +117,7 @@ export default async function ProjectDetailPage({
 
             <Reveal delay={260} className="mt-10">
               <h3 className="font-display text-xl font-semibold">Activities</h3>
-              <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+              <ul className="mt-4 grid grid-cols-2 gap-3">
                 {project.activities.map((a) => (
                   <li key={a} className="rounded-xl border bg-card p-4 text-sm leading-relaxed">
                     {a}

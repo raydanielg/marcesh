@@ -45,7 +45,7 @@ export default function ProjectsPage() {
                 ratio="aspect-[16/10] md:aspect-auto md:h-full"
                 rounded="rounded-none"
                 className="md:absolute md:inset-0"
-                imgClassName="transition-transform duration-700 group-hover:scale-105"
+                imgClassName="transition-transform duration-700 group-hover:scale-[1.03]"
               />
             </div>
             <div className="flex flex-col justify-center gap-4 p-6 md:p-10">

@@ -25,7 +25,7 @@ const socialIcons = {
 
 export function SiteFooter() {
   return (
-    <footer className="bg-deep text-deep-foreground">
+    <footer className="relative overflow-hidden bg-deep text-deep-foreground">
       <div className="mx-auto max-w-7xl px-4 pt-16 pb-8 sm:px-6 lg:px-8">
         <div className="grid gap-12 lg:grid-cols-12">
           <div className="lg:col-span-4">
@@ -139,6 +139,12 @@ export function SiteFooter() {
         <p className="mt-4 text-center text-[11px] tracking-wide text-deep-foreground/40 sm:text-right">
           Powered by {site.poweredBy}
         </p>
+      </div>
+      <div
+        aria-hidden
+        className="font-display pointer-events-none absolute inset-x-0 -bottom-[0.32em] text-center text-[22vw] leading-none font-bold tracking-tight whitespace-nowrap text-white/[0.035] select-none md:text-[18vw] lg:text-[15vw]"
+      >
+        MARCESH
       </div>
     </footer>
   )

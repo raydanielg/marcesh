@@ -11,16 +11,10 @@ export function WhatsAppButton() {
       target="_blank"
       rel="noopener noreferrer"
       aria-label="Chat with Marcesh Foundation on WhatsApp"
-      className="group fixed right-5 bottom-5 z-40 flex items-center gap-2.5 rounded-full bg-[#25D366] py-3 pr-5 pl-3.5 text-sm font-semibold text-white shadow-[0_10px_30px_-8px_rgb(37_211_102/0.55)] transition-all duration-300 hover:-translate-y-0.5 hover:shadow-[0_14px_36px_-8px_rgb(37_211_102/0.6)] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] sm:right-6 sm:bottom-6"
+      className="group fixed right-4 bottom-4 z-40 flex items-center gap-2 rounded-full bg-[#25D366] py-2.5 pr-4 pl-3 text-sm font-semibold text-white shadow-[0_4px_14px_rgb(0_0_0/0.18)] transition-all duration-200 hover:-translate-y-0.5 hover:bg-[#1eb85a] hover:shadow-[0_8px_20px_rgb(0_0_0/0.2)] active:translate-y-0 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#25D366] sm:right-6 sm:bottom-6 sm:gap-2.5 sm:py-3 sm:pr-5 sm:pl-3.5"
     >
-      <span className="relative flex size-7 items-center justify-center">
-        <span
-          aria-hidden
-          className="animate-pulse-ring absolute inset-0 rounded-full bg-white/40"
-        />
-        <HugeiconsIcon icon={WhatsappIcon} strokeWidth={1.8} className="relative size-6" />
-      </span>
-      Chat with us
+      <HugeiconsIcon icon={WhatsappIcon} strokeWidth={1.8} className="size-5 sm:size-6" />
+      <span>Chat with us</span>
     </a>
   )
 }

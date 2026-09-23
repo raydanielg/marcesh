@@ -69,7 +69,7 @@ export function PageHero({
         <div className="absolute inset-0">
           <SiteImage image={image} ratio="aspect-auto" className="absolute inset-0" rounded="rounded-none" imgClassName="animate-hero-drift" />
         </div>
-        <div className="absolute inset-0 bg-gradient-to-t from-deep/95 via-deep/60 to-deep/30" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/40 to-black/15" />
         <div className="relative mx-auto flex min-h-[55vh] max-w-7xl flex-col justify-end px-4 pt-28 pb-12 sm:px-6 lg:px-8">
           {breadcrumb && (
             <Reveal delay={50} className="mb-4">
