@@ -2,10 +2,10 @@
  * Demo statistics to replace with verified figures before launch.
  */
 export const stats = [
-  { value: 1250, suffix: "+", label: "People Supported" },
-  { value: 18, suffix: "", label: "Community Initiatives" },
-  { value: 12, suffix: "", label: "Education Programs" },
-  { value: 9, suffix: "", label: "Health Initiatives" },
+  { value: 1250, suffix: "+", label: "People Supported", icon: "users" },
+  { value: 18, suffix: "", label: "Community Initiatives", icon: "community" },
+  { value: 12, suffix: "", label: "Education Programs", icon: "education" },
+  { value: 9, suffix: "", label: "Health Initiatives", icon: "health" },
 ] as const
 
 /** Demo chart data for the Impact page. */

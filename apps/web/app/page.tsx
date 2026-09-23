@@ -11,6 +11,7 @@ import {
   UserGroupIcon,
   HandHelpingIcon,
   QuoteUpIcon,
+  HeartCheckIcon,
 } from "@hugeicons/core-free-icons"
 import { SiteImage } from "@/components/site-image"
 import { HeroVideo } from "@/components/hero-video"
@@ -30,6 +31,13 @@ import { stories } from "@/lib/data/stories"
 import { faqs } from "@/lib/data/faqs"
 import { JsonLd } from "@/components/json-ld"
 import { faqSchema, pageMetadata } from "@/lib/seo"
+
+const statIcons = {
+  users: UserGroupIcon,
+  community: HandHelpingIcon,
+  education: SchoolIcon,
+  health: HeartCheckIcon,
+} as const
 
 export const metadata: Metadata = pageMetadata({
   title: "Marcesh Foundation | Education, Health & Community Development in Tanzania",
@@ -103,18 +111,25 @@ export default function HomePage() {
       </section>
 
       {/* ── Impact statistics ────────────────────────────────── */}
-      <section className="border-b bg-warm">
-        <Container className="grid grid-cols-2 divide-x divide-border/60 lg:grid-cols-4">
-          {stats.map((s, i) => (
-            <Reveal key={s.label} delay={i * 90} className="px-4 py-8 text-center md:py-12">
-              <div className="font-display text-3xl font-bold text-primary md:text-5xl">
-                <CountUp value={s.value} suffix={s.suffix} />
-              </div>
-              <p className="mt-1.5 text-xs font-medium tracking-wide text-muted-foreground uppercase md:text-sm">
-                {s.label}
-              </p>
-            </Reveal>
-          ))}
+      <section className="relative z-10 -mt-12 pb-2">
+        <Container>
+          <div className="grid grid-cols-2 divide-x divide-white/10 overflow-hidden rounded-2xl bg-deep text-deep-foreground shadow-[0_20px_50px_-20px_rgb(0_0_0/0.4)] lg:grid-cols-4">
+            {stats.map((s, i) => (
+              <Reveal key={s.label} delay={i * 90} className="px-4 py-8 text-center md:py-10">
+                <HugeiconsIcon
+                  icon={statIcons[s.icon]}
+                  strokeWidth={1.8}
+                  className="mx-auto size-6 text-brand"
+                />
+                <div className="font-display mt-3 text-3xl font-bold text-white md:text-4xl">
+                  <CountUp value={s.value} suffix={s.suffix} />
+                </div>
+                <p className="mt-1.5 text-[11px] font-medium tracking-wide text-deep-foreground/70 uppercase md:text-xs">
+                  {s.label}
+                </p>
+              </Reveal>
+            ))}
+          </div>
         </Container>
       </section>
 
