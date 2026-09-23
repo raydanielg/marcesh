@@ -4,6 +4,8 @@ import { HugeiconsIcon } from "@hugeicons/react"
 import { ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import { SiteImage } from "./site-image"
 import { Reveal } from "./reveal"
+import { JsonLd } from "./json-ld"
+import { breadcrumbSchema } from "@/lib/seo"
 import type { SiteImage as SiteImageType } from "@/lib/data/images"
 
 export function Breadcrumb({
@@ -15,6 +17,7 @@ export function Breadcrumb({
 }) {
   return (
     <nav aria-label="Breadcrumb">
+      <JsonLd data={breadcrumbSchema(items)} />
       <ol
         className={cn(
           "flex flex-wrap items-center gap-1.5 text-sm",

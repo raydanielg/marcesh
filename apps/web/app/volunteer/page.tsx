@@ -1,17 +1,19 @@
 import type { Metadata } from "next"
 import { HugeiconsIcon } from "@hugeicons/react"
-import { HandHelpingIcon, Tick02Icon } from "@hugeicons/core-free-icons"
+import { HandHelpingIcon } from "@hugeicons/core-free-icons"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/decorative"
 import { Reveal } from "@/components/reveal"
 import { VolunteerForm } from "@/components/forms/volunteer-form"
 import { images } from "@/lib/data/images"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Volunteer",
+export const metadata: Metadata = pageMetadata({
+  title: "Volunteer | Marcesh Foundation",
   description:
-    "Join Marcesh Foundation's volunteer network — offer your time and skills to support education, health and community initiatives in Kibaha, Pwani.",
-}
+    "Join Marcesh Foundation's volunteer network. Offer your time and skills to support education, health and community initiatives in Kibaha, Pwani, Tanzania.",
+  path: "/volunteer",
+})
 
 const steps = [
   "Fill in the application form with your skills and availability.",
@@ -27,7 +29,7 @@ export default function VolunteerPage() {
         image={images.community}
         eyebrow="Volunteer"
         title="Give your time. Change a life."
-        description="Join the volunteers powering Marcesh Foundation's work — no special qualifications needed, just commitment and care."
+        description="Join the volunteers powering Marcesh Foundation's work. No special qualifications needed, just commitment and care."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved", href: "/get-involved" }, { label: "Volunteer" }]}
       />
       <Section>
@@ -64,7 +66,7 @@ export default function VolunteerPage() {
             <div className="rounded-3xl border bg-card p-6 shadow-[0_20px_50px_-24px_rgb(0_0_0/0.18)] md:p-9">
               <h2 className="font-display text-xl font-semibold md:text-2xl">Volunteer application</h2>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                Tell us about yourself and where you'd like to help.
+                Tell us about yourself and where you&rsquo;d like to help.
               </p>
               <div className="mt-7">
                 <VolunteerForm />

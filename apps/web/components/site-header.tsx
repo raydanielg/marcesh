@@ -12,11 +12,12 @@ import {
   Menu01Icon,
   SearchIcon,
   ArrowRight01Icon,
+  ArrowDown01Icon,
   Mail01Icon,
   Call02Icon,
   Location01Icon,
 } from "@hugeicons/core-free-icons"
-import { mainNav } from "@/lib/data/navigation"
+import { mainNav, discoverNav } from "@/lib/data/navigation"
 import { site } from "@/lib/data/site"
 import { images } from "@/lib/data/images"
 
@@ -24,8 +25,10 @@ export function SiteHeader() {
   const pathname = usePathname()
   const [scrolled, setScrolled] = React.useState(false)
   const [open, setOpen] = React.useState(false)
+  const [discover, setDiscover] = React.useState(false)
   const isHome = pathname === "/"
   const transparent = isHome && !scrolled
+  const discoverRef = React.useRef<HTMLDivElement>(null)
 
   React.useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 16)
@@ -34,11 +37,14 @@ export function SiteHeader() {
     return () => window.removeEventListener("scroll", onScroll)
   }, [])
 
-  React.useEffect(() => setOpen(false), [pathname])
-
   React.useEffect(() => {
     document.body.style.overflow = open ? "hidden" : ""
-    const onKey = (e: KeyboardEvent) => e.key === "Escape" && setOpen(false)
+    const onKey = (e: KeyboardEvent) => {
+      if (e.key === "Escape") {
+        setOpen(false)
+        setDiscover(false)
+      }
+    }
     window.addEventListener("keydown", onKey)
     return () => {
       document.body.style.overflow = ""
@@ -46,8 +52,19 @@ export function SiteHeader() {
     }
   }, [open])
 
+  React.useEffect(() => {
+    if (!discover) return
+    const onClick = (e: MouseEvent) => {
+      if (!discoverRef.current?.contains(e.target as Node)) setDiscover(false)
+    }
+    window.addEventListener("mousedown", onClick)
+    return () => window.removeEventListener("mousedown", onClick)
+  }, [discover])
+
   const isActive = (href: string) =>
     href === "/" ? pathname === "/" : pathname.startsWith(href)
+
+  const discoverActive = discoverNav.some((i) => isActive(i.href))
 
   return (
     <>
@@ -60,7 +77,7 @@ export function SiteHeader() {
         )}
       >
         <div className="mx-auto flex h-16 max-w-7xl items-center justify-between gap-4 px-4 sm:px-6 lg:px-8">
-          <Link href="/" className="flex items-center gap-2.5" aria-label="Marcesh Foundation — home">
+          <Link href="/" className="flex items-center gap-2.5" aria-label="Marcesh Foundation home">
             <Image
               src={images.logo.src!}
               alt={images.logo.alt}
@@ -104,6 +121,78 @@ export function SiteHeader() {
                 )}
               </Link>
             ))}
+
+            {/* Discover dropdown */}
+            <div
+              ref={discoverRef}
+              className="relative"
+              onMouseEnter={() => setDiscover(true)}
+              onMouseLeave={() => setDiscover(false)}
+            >
+              <button
+                type="button"
+                aria-expanded={discover}
+                aria-haspopup="true"
+                onClick={() => setDiscover((v) => !v)}
+                className={cn(
+                  "relative flex items-center gap-1 rounded-md px-3 py-2 text-sm font-medium transition-colors",
+                  transparent
+                    ? "text-white/85 hover:bg-white/10 hover:text-white"
+                    : "text-foreground/80 hover:text-foreground",
+                  discoverActive && (transparent ? "text-white" : "text-primary")
+                )}
+              >
+                Discover
+                <HugeiconsIcon
+                  icon={ArrowDown01Icon}
+                  strokeWidth={2}
+                  className={cn("size-3.5 transition-transform duration-200", discover && "rotate-180")}
+                />
+                {discoverActive && (
+                  <span
+                    className={cn(
+                      "absolute inset-x-3 -bottom-0.5 h-0.5 rounded-full",
+                      transparent ? "bg-white" : "bg-brand"
+                    )}
+                  />
+                )}
+              </button>
+              <div
+                className={cn(
+                  "absolute top-full left-1/2 -translate-x-1/2 pt-3 transition-all duration-200",
+                  discover
+                    ? "pointer-events-auto translate-y-0 opacity-100"
+                    : "pointer-events-none -translate-y-1 opacity-0"
+                )}
+              >
+                <div className="w-72 rounded-2xl border bg-popover p-2 text-popover-foreground shadow-[0_20px_50px_-16px_rgb(0_0_0/0.25)]">
+                  {discoverNav.map((item) => (
+                    <Link
+                      key={item.href}
+                      href={item.href}
+                      onClick={() => setDiscover(false)}
+                      aria-current={isActive(item.href) ? "page" : undefined}
+                      className={cn(
+                        "group flex items-center justify-between rounded-xl px-3.5 py-2.5 transition-colors",
+                        isActive(item.href) ? "bg-secondary" : "hover:bg-muted"
+                      )}
+                    >
+                      <span>
+                        <span className={cn("block text-sm font-medium", isActive(item.href) && "text-primary")}>
+                          {item.label}
+                        </span>
+                        <span className="block text-xs text-muted-foreground">{item.description}</span>
+                      </span>
+                      <HugeiconsIcon
+                        icon={ArrowRight01Icon}
+                        strokeWidth={2}
+                        className="size-4 text-muted-foreground opacity-0 transition-all group-hover:translate-x-0.5 group-hover:opacity-100"
+                      />
+                    </Link>
+                  ))}
+                </div>
+              </div>
+            </div>
           </nav>
 
           <div className="flex items-center gap-2">
@@ -116,6 +205,16 @@ export function SiteHeader() {
               )}
             >
               <HugeiconsIcon icon={SearchIcon} strokeWidth={2} className="size-4.5" />
+            </Link>
+            <Link
+              href="/get-involved"
+              className={cn(
+                buttonVariants({ variant: "outline", size: "lg" }),
+                "hidden xl:inline-flex",
+                transparent && "border-white/30 bg-transparent text-white hover:bg-white/10 hover:text-white"
+              )}
+            >
+              Get Involved
             </Link>
             <Link
               href="/donate"
@@ -177,14 +276,44 @@ export function SiteHeader() {
               <HugeiconsIcon icon={Cancel01Icon} strokeWidth={2} className="size-5" />
             </button>
           </div>
-          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 py-6">
+          <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-5 py-5">
             <ul className="flex flex-col gap-1">
               {mainNav.map((item, i) => (
                 <li key={item.href}>
                   <Link
                     href={item.href}
+                    onClick={() => setOpen(false)}
                     aria-current={isActive(item.href) ? "page" : undefined}
-                    style={{ transitionDelay: `${40 + i * 25}ms` }}
+                    style={{ transitionDelay: `${30 + i * 20}ms` }}
+                    className={cn(
+                      "group flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium transition-all",
+                      open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
+                      isActive(item.href)
+                        ? "bg-secondary text-primary"
+                        : "text-foreground/80 hover:bg-muted hover:text-foreground"
+                    )}
+                  >
+                    {item.label}
+                    <HugeiconsIcon
+                      icon={ArrowRight01Icon}
+                      strokeWidth={2}
+                      className="size-4 text-muted-foreground transition-transform group-hover:translate-x-0.5"
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+            <p className="mt-5 mb-2 px-3 text-xs font-semibold tracking-[0.18em] text-muted-foreground uppercase">
+              Discover
+            </p>
+            <ul className="flex flex-col gap-1">
+              {discoverNav.map((item, i) => (
+                <li key={item.href}>
+                  <Link
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    aria-current={isActive(item.href) ? "page" : undefined}
+                    style={{ transitionDelay: `${140 + i * 20}ms` }}
                     className={cn(
                       "group flex items-center justify-between rounded-lg px-3 py-2.5 text-base font-medium transition-all",
                       open ? "translate-x-0 opacity-100" : "translate-x-4 opacity-0",
@@ -205,10 +334,10 @@ export function SiteHeader() {
             </ul>
           </nav>
           <div className="space-y-3 border-t px-5 py-5">
-            <Link href="/donate" className={cn(buttonVariants({ size: "lg" }), "w-full bg-brand text-brand-foreground hover:bg-brand/90")}>
+            <Link href="/donate" onClick={() => setOpen(false)} className={cn(buttonVariants({ size: "lg" }), "w-full bg-brand text-brand-foreground hover:bg-brand/90")}>
               Support Our Mission
             </Link>
-            <Link href="/get-involved" className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}>
+            <Link href="/get-involved" onClick={() => setOpen(false)} className={cn(buttonVariants({ variant: "outline", size: "lg" }), "w-full")}>
               Get Involved
             </Link>
             <div className="flex flex-col gap-2 pt-2 text-sm text-muted-foreground">

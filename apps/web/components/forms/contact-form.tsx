@@ -38,7 +38,7 @@ export function ContactForm() {
     return (
       <FormSuccess
         title="Message preview complete"
-        message="Your message is ready. Because this website runs without a backend, it has not been delivered yet — please email marceshfoundation@gmail.com directly and we'll be glad to hear from you."
+        message="Your message is ready. Because this website runs without a backend, it has not been delivered yet. Please email marceshfoundation@gmail.com directly and we'll be glad to hear from you."
         onReset={() => setDone(false)}
         resetLabel="Write another message"
       />

@@ -1,7 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { cn } from "@workspace/ui/lib/utils"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowRight01Icon,
@@ -9,7 +8,7 @@ import {
   Calendar03Icon,
   QuoteUpIcon,
 } from "@hugeicons/core-free-icons"
-import { PageHero, Breadcrumb } from "@/components/page-hero"
+import { Breadcrumb } from "@/components/page-hero"
 import { SectionHeading } from "@/components/section-heading"
 import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
@@ -20,6 +19,8 @@ import { ShareButtons } from "@/components/share-buttons"
 import { stories, getStory } from "@/lib/data/stories"
 import { getProject } from "@/lib/data/projects"
 import { formatDate } from "@/lib/format"
+import { JsonLd } from "@/components/json-ld"
+import { articleSchema, pageMetadata } from "@/lib/seo"
 
 export function generateStaticParams() {
   return stories.map((s) => ({ slug: s.slug }))
@@ -33,7 +34,13 @@ export async function generateMetadata({
   const { slug } = await params
   const story = getStory(slug)
   if (!story) return {}
-  return { title: story.title, description: story.excerpt }
+  return pageMetadata({
+    title: `${story.title} | Stories | Marcesh Foundation`,
+    description: story.excerpt,
+    path: `/stories/${story.slug}`,
+    image: story.image.src,
+    type: "article",
+  })
 }
 
 export default async function StoryDetailPage({
@@ -50,6 +57,15 @@ export default async function StoryDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={articleSchema({
+          headline: story.title,
+          description: story.excerpt,
+          path: `/stories/${story.slug}`,
+          image: story.image.src,
+          datePublished: story.date,
+        })}
+      />
       {/* Editorial hero */}
       <section className="relative">
         <div className="relative h-[52vh] min-h-[380px] w-full overflow-hidden">
@@ -116,7 +132,7 @@ export default async function StoryDetailPage({
                   “{story.quote.text}”
                 </p>
                 <cite className="mt-4 block text-sm font-semibold text-muted-foreground not-italic">
-                  — {story.quote.author}
+                  {story.quote.author}
                 </cite>
               </blockquote>
             </Reveal>

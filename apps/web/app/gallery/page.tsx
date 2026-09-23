@@ -4,12 +4,14 @@ import { Section } from "@/components/decorative"
 import { GalleryBrowser } from "@/components/gallery-browser"
 import { CtaSection } from "@/components/cta-section"
 import { gallery, galleryCategories } from "@/lib/data/gallery"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Gallery",
+export const metadata: Metadata = pageMetadata({
+  title: "Photo Gallery | Marcesh Foundation",
   description:
-    "Moments from Marcesh Foundation's work — education events, health outreach, community days and more across Kibaha, Pwani.",
-}
+    "Moments from Marcesh Foundation's work: education programs, health outreach and community initiatives across Kibaha, Pwani, Tanzania.",
+  path: "/gallery",
+})
 
 export default function GalleryPage() {
   return (
@@ -17,7 +19,7 @@ export default function GalleryPage() {
       <PageHero
         eyebrow="Gallery"
         title="Moments from the field"
-        description="A window into our work — the ceremonies, outreach days and everyday moments that make up the Marcesh story."
+        description="A window into our work: the ceremonies, outreach days and everyday moments that make up the Marcesh story."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Gallery" }]}
       />
       <Section>

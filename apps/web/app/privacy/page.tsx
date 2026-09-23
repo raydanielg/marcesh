@@ -1,12 +1,14 @@
 import type { Metadata } from "next"
 import { PageHero } from "@/components/page-hero"
-import { Section, Container } from "@/components/decorative"
+import { Section } from "@/components/decorative"
 import { site } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Privacy Policy",
-  description: `Privacy policy of ${site.name} — how we handle information shared with us.`,
-}
+export const metadata: Metadata = pageMetadata({
+  title: `Privacy Policy | ${site.name}`,
+  description: `Privacy policy of ${site.name}, and how we handle information shared with us.`,
+  path: "/privacy",
+})
 
 const sections = [
   {

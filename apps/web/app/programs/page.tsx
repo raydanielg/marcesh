@@ -10,18 +10,19 @@ import {
   HandHelpingIcon,
 } from "@hugeicons/core-free-icons"
 import { PageHero } from "@/components/page-hero"
-import { SectionHeading } from "@/components/section-heading"
 import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
 import { Section } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
 import { programs } from "@/lib/data/programs"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Our Programs",
+export const metadata: Metadata = pageMetadata({
+  title: "Programs | Education, Health & Community Development | Marcesh Foundation",
   description:
-    "Explore Marcesh Foundation's programs in education, health, community development and support for the needy across Kibaha, Pwani.",
-}
+    "Explore Marcesh Foundation's programs: education support, health initiatives, community development and support for people in need across Kibaha, Pwani, Tanzania.",
+  path: "/programs",
+})
 
 const programIcons = {
   education: SchoolIcon,
@@ -36,7 +37,7 @@ export default function ProgramsPage() {
       <PageHero
         eyebrow="Our Programs"
         title="Four pillars of lasting change"
-        description="Each of our programs tackles a different barrier to a fair, healthy and educated society — together they form one mission."
+        description="Each of our programs tackles a different barrier to a fair, healthy and educated society. Together they form one mission."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Programs" }]}
       />
 

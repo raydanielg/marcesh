@@ -12,16 +12,18 @@ import { PageHero } from "@/components/page-hero"
 import { SectionHeading } from "@/components/section-heading"
 import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
-import { Section, Container, DotsField } from "@/components/decorative"
+import { Section, DotsField } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
 import { images } from "@/lib/data/images"
 import { projects } from "@/lib/data/projects"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Get Involved",
+export const metadata: Metadata = pageMetadata({
+  title: "Get Involved | Marcesh Foundation",
   description:
-    "Support Marcesh Foundation — donate, volunteer, partner or back a project and help build a healthier, more educated society.",
-}
+    "Support Marcesh Foundation: donate, volunteer, partner or back a project and help build a healthier, more educated society in Kibaha, Pwani.",
+  path: "/get-involved",
+})
 
 export default function GetInvolvedPage() {
   const supportable = projects.filter((p) => p.status !== "Completed").slice(0, 3)
@@ -33,11 +35,11 @@ export default function GetInvolvedPage() {
         image={images.community}
         eyebrow="Get Involved"
         title="Change starts with one person. You."
-        description="Four ways to stand with communities in Kibaha — choose the one that fits you."
+        description="Four ways to stand with communities in Kibaha. Choose the one that fits you."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved" }]}
       />
 
-      {/* Donate — full-width band */}
+      {/* Donate band */}
       <Section className="bg-primary text-primary-foreground">
         <div className="grid items-center gap-8 lg:grid-cols-2">
           <div>
@@ -73,7 +75,7 @@ export default function GetInvolvedPage() {
         </div>
       </Section>
 
-      {/* Volunteer — split with image */}
+      {/* Volunteer split */}
       <Section>
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
           <Reveal variant="left">
@@ -87,7 +89,7 @@ export default function GetInvolvedPage() {
               <h2 className="font-display mt-5 text-3xl font-semibold md:text-4xl">Volunteer</h2>
               <p className="mt-4 max-w-lg text-base leading-relaxed text-muted-foreground md:text-lg">
                 Our volunteers visit schools, join outreach days and stand beside neighbours who
-                need support. Whatever your skill, there's a place for you here.
+                need support. Whatever your skill, there&rsquo;s a place for you here.
               </p>
             </Reveal>
             <Reveal delay={160} className="mt-7 flex flex-wrap gap-3">
@@ -100,7 +102,7 @@ export default function GetInvolvedPage() {
         </div>
       </Section>
 
-      {/* Partner — deep band */}
+      {/* Partner band */}
       <Section className="relative overflow-hidden bg-deep text-deep-foreground">
         <DotsField className="top-8 right-8 h-40 w-56 text-white/8" />
         <div className="grid items-center gap-10 lg:grid-cols-2">
@@ -113,8 +115,8 @@ export default function GetInvolvedPage() {
                 Partner With Us
               </h2>
               <p className="mt-4 max-w-lg text-base leading-relaxed text-deep-foreground/75 md:text-lg">
-                Schools, companies, NGOs and institutions — partner with us on programs that
-                create measurable community impact. Let's design something meaningful together.
+                Schools, companies, NGOs and institutions, partner with us on programs that
+                create measurable community impact. Let&rsquo;s design something meaningful together.
               </p>
             </Reveal>
             <Reveal delay={160} className="mt-7">

@@ -19,15 +19,16 @@ export function CountUp({
   React.useEffect(() => {
     const el = ref.current
     if (!el) return
-    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) {
-      setDisplay(value)
-      return
-    }
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches
     let raf = 0
     const observer = new IntersectionObserver(
       (entries) => {
         if (!entries[0]?.isIntersecting) return
         observer.disconnect()
+        if (reduced) {
+          setDisplay(value)
+          return
+        }
         const start = performance.now()
         const tick = (now: number) => {
           const t = Math.min((now - start) / duration, 1)

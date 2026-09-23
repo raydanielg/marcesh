@@ -24,7 +24,7 @@ export const programs: Program[] = [
       "We expand access to quality education through school support, learning materials and community education initiatives.",
     longDescription: [
       "Education is one of the core pillars of Marcesh Foundation. We believe every child and young person in Kibaha and beyond deserves the chance to learn, grow and build a meaningful future.",
-      "Our education program works directly with schools, families and communities to remove the barriers that keep children out of the classroom — from lack of materials to limited family support.",
+      "Our education program works directly with schools, families and communities to remove the barriers that keep children out of the classroom, from lack of materials to limited family support.",
     ],
     objectives: [
       "Increase access to quality education for children and youth.",
@@ -56,7 +56,7 @@ export const programs: Program[] = [
       "We promote community health through awareness campaigns, outreach and support that improves access to essential services.",
     longDescription: [
       "Good health is the foundation of a thriving community. Marcesh Foundation works to raise health awareness and connect people in Kibaha with the services and knowledge they need.",
-      "Rather than replacing public health systems, our initiatives focus on awareness, prevention and community support — meeting people where they are.",
+      "Rather than replacing public health systems, our initiatives focus on awareness, prevention and community support, meeting people where they are.",
     ],
     objectives: [
       "Raise awareness of key health issues in local communities.",
@@ -71,7 +71,7 @@ export const programs: Program[] = [
       "Partnerships with local health workers and clinics.",
     ],
     impact:
-      "Our health initiatives help families make informed decisions and connect with care earlier — building a healthier, more resilient community.",
+      "Our health initiatives help families make informed decisions and connect with care earlier, building a healthier, more resilient community.",
     image: images.health,
     stats: [
       { value: 9, suffix: "", label: "Health Initiatives" },
@@ -120,7 +120,7 @@ export const programs: Program[] = [
       "We stand beside vulnerable and needy people with essential support that protects dignity and creates opportunity.",
     longDescription: [
       "Behind every statistic is a person with a story. Marcesh Foundation provides practical, dignified support to vulnerable individuals and families in our community.",
-      "We believe support should restore confidence, not create dependence — so our approach pairs essential assistance with pathways to opportunity.",
+      "We believe support should restore confidence, not create dependence. Our approach pairs essential assistance with pathways to opportunity.",
     ],
     objectives: [
       "Provide essential support to vulnerable people and families.",

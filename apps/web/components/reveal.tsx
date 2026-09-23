@@ -25,7 +25,7 @@ export function Reveal({
   variant?: RevealVariant
   delay?: number
   className?: string
-  as?: "div" | "section" | "article" | "li" | "span" | "figure"
+  as?: "div" | "section" | "article" | "li" | "span" | "figure" | "address" | "aside" | "ul" | "ol"
 }) {
   const ref = React.useRef<HTMLElement | null>(null)
 

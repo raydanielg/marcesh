@@ -9,7 +9,7 @@ export type TeamMember = {
 }
 
 /**
- * Placeholder team members — replace with real leadership details.
+ * Placeholder team members to replace with real leadership details.
  */
 export const team: TeamMember[] = [
   {

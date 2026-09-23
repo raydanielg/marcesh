@@ -5,12 +5,14 @@ import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/decorative"
 import { Reveal } from "@/components/reveal"
 import { PartnerForm } from "@/components/forms/partner-form"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Partner With Us",
+export const metadata: Metadata = pageMetadata({
+  title: "Partner With Us | Marcesh Foundation",
   description:
-    "Partner with Marcesh Foundation — collaborate on education, health and community initiatives that create real impact in Kibaha, Pwani.",
-}
+    "Partner with Marcesh Foundation. Collaborate on education, health and community initiatives that create real impact in Kibaha, Pwani, Tanzania.",
+  path: "/partner",
+})
 
 const benefits = [
   "Co-design programs that align with your organisation's goals",
@@ -25,7 +27,7 @@ export default function PartnerPage() {
       <PageHero
         eyebrow="Partner With Us"
         title="Let's build something lasting, together"
-        description="Organisations, schools and institutions — join us in creating opportunities across the Pwani region."
+        description="Organisations, schools and institutions, join us in creating opportunities across the Pwani region."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved", href: "/get-involved" }, { label: "Partner" }]}
       />
       <Section>

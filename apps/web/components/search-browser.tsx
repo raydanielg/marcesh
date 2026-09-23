@@ -13,7 +13,6 @@ import {
 } from "@hugeicons/core-free-icons"
 import { SiteImage } from "./site-image"
 import { EmptyState } from "./empty-state"
-import { formatDateShort } from "@/lib/format"
 import type { SiteImage as SiteImageType } from "@/lib/data/images"
 
 export type SearchEntry = {

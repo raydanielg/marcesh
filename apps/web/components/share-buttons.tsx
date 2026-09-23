@@ -13,14 +13,9 @@ import {
 
 export function ShareButtons({ title, path }: { title: string; path: string }) {
   const [copied, setCopied] = React.useState(false)
-  const [url, setUrl] = React.useState(path)
-
-  React.useEffect(() => {
-    setUrl(`${window.location.origin}${path}`)
-  }, [path])
 
   const share = (network: string) => {
-    const encoded = encodeURIComponent(url)
+    const encoded = encodeURIComponent(`${window.location.origin}${path}`)
     const text = encodeURIComponent(title)
     const urls: Record<string, string> = {
       whatsapp: `https://wa.me/?text=${text}%20${encoded}`,
@@ -33,7 +28,7 @@ export function ShareButtons({ title, path }: { title: string; path: string }) {
 
   const copy = async () => {
     try {
-      await navigator.clipboard.writeText(url)
+      await navigator.clipboard.writeText(`${window.location.origin}${path}`)
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     } catch {

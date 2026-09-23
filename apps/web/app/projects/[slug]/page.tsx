@@ -14,11 +14,13 @@ import { PageHero } from "@/components/page-hero"
 import { SectionHeading } from "@/components/section-heading"
 import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
-import { Section, Container } from "@/components/decorative"
+import { Section } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
 import { ProjectCard, StatusBadge } from "@/components/cards"
 import { projects, getProject } from "@/lib/data/projects"
 import { formatDate, formatDateShort } from "@/lib/format"
+import { JsonLd } from "@/components/json-ld"
+import { pageMetadata, projectSchema } from "@/lib/seo"
 
 export function generateStaticParams() {
   return projects.map((p) => ({ slug: p.slug }))
@@ -32,7 +34,12 @@ export async function generateMetadata({
   const { slug } = await params
   const project = getProject(slug)
   if (!project) return {}
-  return { title: project.title, description: project.summary }
+  return pageMetadata({
+    title: `${project.title} | Projects | Marcesh Foundation`,
+    description: project.summary,
+    path: `/projects/${project.slug}`,
+    image: project.image.src,
+  })
 }
 
 export default async function ProjectDetailPage({
@@ -49,6 +56,15 @@ export default async function ProjectDetailPage({
 
   return (
     <>
+      <JsonLd
+        data={projectSchema({
+          name: project.title,
+          description: project.summary,
+          path: `/projects/${project.slug}`,
+          status: project.status,
+          location: project.location,
+        })}
+      />
       <PageHero
         variant="image"
         image={project.image}

@@ -1,9 +1,15 @@
+import type { Metadata } from "next"
 import Link from "next/link"
 import { cn } from "@workspace/ui/lib/utils"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { HugeiconsIcon } from "@hugeicons/react"
 import { Home03Icon, ArrowRight01Icon } from "@hugeicons/core-free-icons"
 import { DotsField, SoftBlob } from "@/components/decorative"
+
+export const metadata: Metadata = {
+  title: { absolute: "Page Not Found | Marcesh Foundation" },
+  robots: { index: false },
+}
 
 export default function NotFound() {
   return (
@@ -18,7 +24,7 @@ export default function NotFound() {
           Page Not Found
         </h1>
         <p className="mt-4 text-base leading-relaxed text-muted-foreground">
-          The page you're looking for may have moved or no longer exists.
+          The page you&rsquo;re looking for may have moved or no longer exists.
         </p>
         <div className="mt-8 flex flex-wrap justify-center gap-3">
           <Link href="/" className={cn(buttonVariants({ size: "lg" }), "h-11")}>

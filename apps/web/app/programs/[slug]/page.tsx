@@ -1,8 +1,6 @@
 import type { Metadata } from "next"
 import Link from "next/link"
 import { notFound } from "next/navigation"
-import { cn } from "@workspace/ui/lib/utils"
-import { buttonVariants } from "@workspace/ui/components/button"
 import { HugeiconsIcon } from "@hugeicons/react"
 import {
   ArrowRight01Icon,
@@ -14,7 +12,6 @@ import {
 } from "@hugeicons/core-free-icons"
 import { PageHero } from "@/components/page-hero"
 import { SectionHeading } from "@/components/section-heading"
-import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
 import { CountUp } from "@/components/count-up"
 import { Section } from "@/components/decorative"
@@ -22,6 +19,7 @@ import { CtaSection } from "@/components/cta-section"
 import { ProjectCard } from "@/components/cards"
 import { programs, getProgram } from "@/lib/data/programs"
 import { projects } from "@/lib/data/projects"
+import { pageMetadata } from "@/lib/seo"
 
 const programIcons = {
   education: SchoolIcon,
@@ -49,7 +47,11 @@ export async function generateMetadata({
   const { slug } = await params
   const program = getProgram(slug)
   if (!program) return {}
-  return { title: `${program.title} Program`, description: program.description }
+  return pageMetadata({
+    title: `${program.title} Program | Marcesh Foundation`,
+    description: program.description,
+    path: `/programs/${program.slug}`,
+  })
 }
 
 export default async function ProgramDetailPage({

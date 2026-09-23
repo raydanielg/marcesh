@@ -11,12 +11,14 @@ import { CtaSection } from "@/components/cta-section"
 import { StatusBadge } from "@/components/cards"
 import { projects } from "@/lib/data/projects"
 import { formatDateShort } from "@/lib/format"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Our Projects",
+export const metadata: Metadata = pageMetadata({
+  title: "Projects & Community Initiatives | Marcesh Foundation",
   description:
-    "Browse Marcesh Foundation's ongoing, completed and upcoming projects in education, health, community development and support.",
-}
+    "Browse Marcesh Foundation's ongoing, completed and upcoming projects in education, health, community development and support for vulnerable communities in Kibaha, Pwani.",
+  path: "/projects",
+})
 
 export default function ProjectsPage() {
   const featured = projects.find((p) => p.featured) ?? projects[0]!
@@ -26,7 +28,7 @@ export default function ProjectsPage() {
       <PageHero
         eyebrow="Our Projects"
         title="Work happening right now"
-        description="From classroom support to health outreach — explore the initiatives our volunteers and partners bring to life."
+        description="From classroom support to health outreach, explore the initiatives our volunteers and partners bring to life."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Projects" }]}
       />
 

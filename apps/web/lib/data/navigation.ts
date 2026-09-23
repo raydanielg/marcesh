@@ -1,4 +1,4 @@
-export type NavItem = { label: string; href: string }
+export type NavItem = { label: string; href: string; description?: string }
 
 export const mainNav: NavItem[] = [
   { label: "Home", href: "/" },
@@ -6,11 +6,14 @@ export const mainNav: NavItem[] = [
   { label: "Programs", href: "/programs" },
   { label: "Projects", href: "/projects" },
   { label: "Impact", href: "/impact" },
-  { label: "Stories", href: "/stories" },
-  { label: "News", href: "/news" },
-  { label: "Events", href: "/events" },
-  { label: "Get Involved", href: "/get-involved" },
-  { label: "Contact", href: "/contact" },
+]
+
+export const discoverNav: NavItem[] = [
+  { label: "Stories", href: "/stories", description: "Stories of change from our communities" },
+  { label: "Gallery", href: "/gallery", description: "Moments from our work in the field" },
+  { label: "Our Team", href: "/team", description: "Meet the people behind the mission" },
+  { label: "Get Involved", href: "/get-involved", description: "Donate, volunteer or partner with us" },
+  { label: "Contact", href: "/contact", description: "Reach out. We'd love to hear from you" },
 ]
 
 export const footerNav = {
@@ -20,8 +23,6 @@ export const footerNav = {
     { label: "Projects", href: "/projects" },
     { label: "Impact", href: "/impact" },
     { label: "Stories", href: "/stories" },
-    { label: "News", href: "/news" },
-    { label: "Events", href: "/events" },
     { label: "Gallery", href: "/gallery" },
     { label: "Our Team", href: "/team" },
     { label: "Contact", href: "/contact" },

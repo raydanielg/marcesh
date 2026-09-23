@@ -10,7 +10,7 @@ import { Loading03Icon } from "@hugeicons/core-free-icons"
 import { FormField } from "./form-field"
 import { FormSuccess, MockNote } from "./form-success"
 
-const interests = ["Education", "Health", "Community Development", "Support for the Needy", "Events & Logistics", "Media & Communications"]
+const interests = ["Education", "Health", "Community Development", "Support for the Needy", "Fundraising & Logistics", "Media & Communications"]
 const availability = ["Weekdays", "Weekends", "Evenings", "Flexible"]
 
 export function VolunteerForm() {
@@ -51,7 +51,7 @@ export function VolunteerForm() {
   if (done) {
     return (
       <FormSuccess
-        title="Application received — on screen"
+        title="Application received on screen"
         message="Your volunteer application preview is complete. Because this website currently runs without a backend, your details have not been sent to Marcesh Foundation yet. Please reach us directly at marceshfoundation@gmail.com or +255 628 312 926 to confirm your interest."
         onReset={() => setDone(false)}
         resetLabel="Fill the form again"

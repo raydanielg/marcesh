@@ -142,7 +142,7 @@ export function DonateForm() {
             <DialogTitle className="font-display text-xl">Thank you{anonymous ? "" : name ? `, ${name.split(" ")[0]}` : ""}!</DialogTitle>
             <DialogDescription className="text-sm leading-relaxed">
               Donation setup is ready for payment integration. No payment has been
-              processed — this demonstration shows how the donation flow will work
+              processed. This demonstration shows how the donation flow will work
               once a payment provider is connected.
             </DialogDescription>
           </DialogHeader>
@@ -155,7 +155,7 @@ export function DonateForm() {
             </div>
             <div className="mt-1.5 flex justify-between">
               <span className="text-muted-foreground">Donor</span>
-              <span className="font-semibold">{anonymous ? "Anonymous" : name || "—"}</span>
+              <span className="font-semibold">{anonymous ? "Anonymous" : name || "Not provided"}</span>
             </div>
           </div>
           <DialogFooter showCloseButton>

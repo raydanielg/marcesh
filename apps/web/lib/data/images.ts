@@ -66,11 +66,11 @@ export const images = {
   ),
 
   placeholders: {
-    project: img(undefined, "Project photo — to be replaced"),
-    story: img(undefined, "Story photo — to be replaced"),
-    news: img(undefined, "News photo — to be replaced"),
-    event: img(undefined, "Event photo — to be replaced"),
-    person: img(undefined, "Portrait photo — to be replaced"),
-    gallery: img(undefined, "Gallery photo — to be replaced"),
+    project: img(undefined, "Project photo to be replaced"),
+    story: img(undefined, "Story photo to be replaced"),
+    news: img(undefined, "News photo to be replaced"),
+    event: img(undefined, "Event photo to be replaced"),
+    person: img(undefined, "Portrait photo to be replaced"),
+    gallery: img(undefined, "Gallery photo to be replaced"),
   },
 } as const

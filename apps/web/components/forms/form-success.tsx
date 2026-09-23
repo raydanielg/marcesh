@@ -36,7 +36,7 @@ export function FormSuccess({
 export function MockNote() {
   return (
     <p className="rounded-lg bg-muted px-3.5 py-2.5 text-xs leading-relaxed text-muted-foreground">
-      This is a frontend-only demonstration form. Nothing is sent or stored — a backend
+      This is a frontend-only demonstration form. Nothing is sent or stored. A backend
       integration can be connected later.
     </p>
   )

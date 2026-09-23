@@ -1,4 +1,5 @@
 import Link from "next/link"
+import type { Metadata } from "next"
 import { buttonVariants } from "@workspace/ui/components/button"
 import { cn } from "@workspace/ui/lib/utils"
 import { HugeiconsIcon } from "@hugeicons/react"
@@ -10,7 +11,6 @@ import {
   UserGroupIcon,
   HandHelpingIcon,
   QuoteUpIcon,
-  Location01Icon,
 } from "@hugeicons/core-free-icons"
 import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
@@ -18,16 +18,24 @@ import { CountUp } from "@/components/count-up"
 import { SectionHeading } from "@/components/section-heading"
 import { Section, Container, DotsField, SoftBlob } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
-import { ProjectCard, StoryCard, NewsCard } from "@/components/cards"
+import { ProjectCard, StoryCard } from "@/components/cards"
+import { FaqAccordion } from "@/components/faq-accordion"
 import { site } from "@/lib/data/site"
 import { images } from "@/lib/data/images"
 import { stats } from "@/lib/data/stats"
 import { programs } from "@/lib/data/programs"
 import { projects } from "@/lib/data/projects"
 import { stories } from "@/lib/data/stories"
-import { news } from "@/lib/data/news"
-import { events } from "@/lib/data/events"
-import { formatDateShort } from "@/lib/format"
+import { faqs } from "@/lib/data/faqs"
+import { JsonLd } from "@/components/json-ld"
+import { faqSchema, pageMetadata } from "@/lib/seo"
+
+export const metadata: Metadata = pageMetadata({
+  title: "Marcesh Foundation | Education, Health & Community Development in Tanzania",
+  description:
+    "Marcesh Foundation is an NGO in Kibaha, Pwani, Tanzania improving lives through education support, health initiatives, community development and support for people in need.",
+  path: "/",
+})
 
 const programIcons = {
   education: SchoolIcon,
@@ -39,10 +47,10 @@ const programIcons = {
 export default function HomePage() {
   const featured = projects.find((p) => p.featured) ?? projects[0]!
   const featuredStory = stories[0]!
-  const upcoming = events.filter((e) => !e.past).slice(0, 2)
 
   return (
     <>
+      <JsonLd data={faqSchema([...faqs])} />
       {/* ── Hero ─────────────────────────────────────────────── */}
       <section className="relative flex min-h-[88vh] items-end overflow-hidden md:min-h-[85vh]">
         <div className="absolute inset-0">
@@ -135,7 +143,7 @@ export default function HomePage() {
             <Reveal delay={120}>
               <p className="mt-5 text-base leading-relaxed text-muted-foreground md:text-lg">
                 Based in {site.location}, {site.name} works alongside communities to expand
-                access to education, improve health outcomes and support those most in need —
+                access to education, improve health outcomes and support those most in need.
                 building a society where everyone has a fair chance to thrive.
               </p>
             </Reveal>
@@ -164,7 +172,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="What We Do"
           title="Four areas. One purpose."
-          description="Every initiative at Marcesh Foundation flows through four connected focus areas — each one strengthening the others."
+          description="Every initiative at Marcesh Foundation flows through four connected focus areas, each one strengthening the others."
         />
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {programs.map((p, i) => (
@@ -269,7 +277,7 @@ export default function HomePage() {
                     “{featuredStory.quote.text}”
                   </p>
                   <cite className="mt-2 block text-sm font-medium text-deep-foreground/60 not-italic">
-                    — {featuredStory.quote.author}
+                    {featuredStory.quote.author}
                   </cite>
                 </blockquote>
               </Reveal>
@@ -297,7 +305,7 @@ export default function HomePage() {
         <SectionHeading
           eyebrow="Programs"
           title="Where our work lives"
-          description="Long-term programs carry our mission forward — explore each area and the projects within it."
+          description="Long-term programs carry our mission forward. Explore each area and the projects within it."
         />
         <div className="flex flex-col divide-y overflow-hidden rounded-2xl border">
           {programs.map((p, i) => (
@@ -344,7 +352,7 @@ export default function HomePage() {
           </Reveal>
           <Reveal delay={260}>
             <p className="mt-6 text-sm font-semibold tracking-[0.18em] text-muted-foreground uppercase">
-              Our Vision — {site.name}
+              Our Vision, {site.name}
             </p>
           </Reveal>
         </div>
@@ -354,8 +362,8 @@ export default function HomePage() {
       <Section>
         <SectionHeading
           eyebrow="Get Involved"
-          title="Choose how you'll make a difference"
-          description="Whether you give, volunteer or partner — your contribution becomes someone's opportunity."
+          title="Choose how you&rsquo;ll make a difference"
+          description="Whether you give, volunteer or partner, your contribution becomes someone's opportunity."
         />
         <div className="grid gap-6 md:grid-cols-3">
           <Reveal>
@@ -377,7 +385,7 @@ export default function HomePage() {
               <div>
                 <h3 className="font-display text-xl font-semibold">Volunteer</h3>
                 <p className="mt-2 text-sm leading-relaxed text-brand-foreground/80">
-                  Offer your time and skills — join the volunteers powering our community work.
+                  Offer your time and skills. Join the volunteers powering our community work.
                 </p>
               </div>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold">
@@ -391,7 +399,7 @@ export default function HomePage() {
               <div>
                 <h3 className="font-display text-xl font-semibold">Partner With Us</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted-foreground">
-                  Organisations and institutions — let's build something lasting together.
+                  Organisations and institutions, let&rsquo;s build something lasting together.
                 </p>
               </div>
               <span className="mt-6 inline-flex items-center gap-1.5 text-sm font-semibold text-primary">
@@ -400,64 +408,6 @@ export default function HomePage() {
               </span>
             </Link>
           </Reveal>
-        </div>
-      </Section>
-
-      {/* ── News & events ────────────────────────────────────── */}
-      <Section className="bg-secondary/40">
-        <div className="grid gap-12 lg:grid-cols-3 lg:gap-10">
-          <div className="lg:col-span-2">
-            <div className="mb-8 flex items-end justify-between">
-              <SectionHeading eyebrow="Latest" title="News & updates" className="mb-0" />
-              <Link href="/news" className={cn(buttonVariants({ variant: "ghost" }), "hidden shrink-0 text-primary sm:inline-flex")}>
-                All news
-                <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="size-4" />
-              </Link>
-            </div>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {news.slice(0, 2).map((a, i) => (
-                <Reveal key={a.slug} delay={i * 120}>
-                  <NewsCard article={a} />
-                </Reveal>
-              ))}
-            </div>
-          </div>
-          <div>
-            <div className="mb-8 flex items-end justify-between">
-              <SectionHeading eyebrow="Join Us" title="Upcoming events" className="mb-0" />
-              <Link href="/events" className={cn(buttonVariants({ variant: "ghost" }), "hidden shrink-0 text-primary sm:inline-flex")}>
-                All events
-              </Link>
-            </div>
-            <ul className="flex flex-col gap-4">
-              {upcoming.map((e, i) => {
-                const d = new Date(e.date)
-                return (
-                  <Reveal key={e.slug} delay={i * 120}>
-                    <Link
-                      href={`/events/${e.slug}`}
-                      className="group flex items-center gap-4 rounded-2xl border bg-card p-4 transition-all hover:-translate-y-0.5 hover:shadow-[0_12px_30px_-14px_rgb(0_0_0/0.15)]"
-                    >
-                      <div className="flex w-14 shrink-0 flex-col items-center rounded-xl bg-secondary py-2.5">
-                        <span className="font-display text-2xl leading-none font-bold text-secondary-foreground">{d.getDate()}</span>
-                        <span className="mt-1 text-[10px] font-semibold tracking-widest text-muted-foreground uppercase">
-                          {d.toLocaleDateString("en-GB", { month: "short" })}
-                        </span>
-                      </div>
-                      <div className="min-w-0">
-                        <h3 className="font-display truncate font-semibold">{e.title}</h3>
-                        <p className="mt-0.5 flex items-center gap-1.5 text-xs text-muted-foreground">
-                          <HugeiconsIcon icon={Location01Icon} strokeWidth={2} className="size-3.5" />
-                          {e.location} · {formatDateShort(e.date)}
-                        </p>
-                      </div>
-                      <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="ml-auto size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />
-                    </Link>
-                  </Reveal>
-                )
-              })}
-            </ul>
-          </div>
         </div>
       </Section>
 
@@ -478,6 +428,31 @@ export default function HomePage() {
               <StoryCard story={s} />
             </Reveal>
           ))}
+        </div>
+      </Section>
+
+      {/* ── FAQ ──────────────────────────────────────────────── */}
+      <Section className="bg-warm">
+        <div className="grid gap-10 lg:grid-cols-5 lg:gap-16">
+          <div className="lg:col-span-2">
+            <SectionHeading
+              eyebrow="Questions"
+              title="Frequently asked questions"
+              description="Everything you need to know about Marcesh Foundation and how to be part of the mission."
+              className="mb-0"
+            />
+            <Reveal delay={200} className="mt-8">
+              <Link href="/contact" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
+                Still have questions? Contact us
+                <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="size-4" />
+              </Link>
+            </Reveal>
+          </div>
+          <Reveal variant="right" className="lg:col-span-3">
+            <div className="rounded-2xl border bg-card px-6 py-2">
+              <FaqAccordion />
+            </div>
+          </Reveal>
         </div>
       </Section>
 

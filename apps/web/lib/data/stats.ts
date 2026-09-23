@@ -1,5 +1,5 @@
 /**
- * Demo statistics — replace with verified figures before launch.
+ * Demo statistics to replace with verified figures before launch.
  */
 export const stats = [
   { value: 1250, suffix: "+", label: "People Supported" },

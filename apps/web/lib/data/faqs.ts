@@ -2,7 +2,7 @@ export const faqs = [
   {
     question: "What does Marcesh Foundation do?",
     answer:
-      "Marcesh Foundation is a community organisation based in Kibaha, Pwani, Tanzania. We work to improve lives through education support, health awareness, community development and support for vulnerable people — guided by a vision of a happy, prosperous and equal society.",
+      "Marcesh Foundation is a community organisation based in Kibaha, Pwani, Tanzania. We work to improve lives through education support, health awareness, community development and support for vulnerable people, guided by a vision of a happy, prosperous and equal society.",
   },
   {
     question: "Where does Marcesh Foundation operate?",
@@ -17,7 +17,7 @@ export const faqs = [
   {
     question: "How can I volunteer?",
     answer:
-      "Fill in the volunteer form on our Volunteer page with your skills, interests and availability. Our volunteer team reviews applications and reaches out about upcoming opportunities. No special qualifications are needed — just commitment and care.",
+      "Fill in the volunteer form on our Volunteer page with your skills, interests and availability. Our volunteer team reviews applications and reaches out about upcoming opportunities. No special qualifications are needed, just commitment and care.",
   },
   {
     question: "How can organizations partner with the foundation?",
@@ -27,6 +27,6 @@ export const faqs = [
   {
     question: "How can I contact Marcesh Foundation?",
     answer:
-      "You can reach us at marceshfoundation@gmail.com or call +255 628 312 926. You can also use the contact form on our Contact page — we aim to respond to every message.",
+      "You can reach us at marceshfoundation@gmail.com or call +255 628 312 926. You can also use the contact form on our Contact page. We aim to respond to every message.",
   },
 ]

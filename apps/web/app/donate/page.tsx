@@ -6,12 +6,14 @@ import { Section } from "@/components/decorative"
 import { Reveal } from "@/components/reveal"
 import { DonateForm } from "@/components/forms/donate-form"
 import { CtaSection } from "@/components/cta-section"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Donate",
+export const metadata: Metadata = pageMetadata({
+  title: "Donate | Support Marcesh Foundation",
   description:
-    "Support Marcesh Foundation's mission — your contribution funds education, health and community initiatives in Kibaha, Pwani.",
-}
+    "Support Marcesh Foundation's mission. Your contribution funds education support, health initiatives and community programs in Kibaha, Pwani, Tanzania.",
+  path: "/donate",
+})
 
 const points = [
   "School supplies and learning materials for students",
@@ -26,7 +28,7 @@ export default function DonatePage() {
       <PageHero
         eyebrow="Donate"
         title="Your generosity becomes someone's opportunity"
-        description="Every contribution — large or small — goes directly toward programs that improve lives in Kibaha, Pwani."
+        description="Every contribution, large or small, goes directly toward programs that improve lives in Kibaha, Pwani."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Get Involved", href: "/get-involved" }, { label: "Donate" }]}
       />
       <Section>
@@ -55,7 +57,7 @@ export default function DonatePage() {
             <Reveal delay={300} className="mt-8 flex items-start gap-3 rounded-xl border bg-warm p-4">
               <HugeiconsIcon icon={ShieldIcon} strokeWidth={1.8} className="mt-0.5 size-5 shrink-0 text-primary" />
               <p className="text-sm leading-relaxed text-muted-foreground">
-                Marcesh Foundation is committed to transparency — we report openly on how
+                Marcesh Foundation is committed to transparency. We report openly on how
                 contributions are used across our programs.
               </p>
             </Reveal>
@@ -64,7 +66,7 @@ export default function DonatePage() {
             <div className="rounded-3xl border bg-card p-6 shadow-[0_20px_50px_-24px_rgb(0_0_0/0.18)] md:p-9">
               <h2 className="font-display text-xl font-semibold md:text-2xl">Make a donation</h2>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                Choose an amount or enter your own — in Tanzanian Shillings or US Dollars.
+                Choose an amount or enter your own in Tanzanian Shillings or US Dollars.
               </p>
               <div className="mt-7">
                 <DonateForm />

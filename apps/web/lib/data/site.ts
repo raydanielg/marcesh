@@ -10,6 +10,7 @@ export const site = {
   phoneHref: "tel:+255628312926",
   emailHref: "mailto:marceshfoundation@gmail.com",
   url: "https://marceshfoundation.org",
+  poweredBy: "Marcesh Foundation Management System",
   vision:
     "To be an instrument of change in society by bringing about sustainable development, raising the levels of education and health and helping the needy to build a happy and prosperous society for all.",
   mission:
@@ -34,12 +35,12 @@ export const site = {
 } as const
 
 export const values = [
-  { key: "equality", title: "Equality", description: "Every person deserves the same opportunity to learn, heal and thrive — regardless of background.", icon: "equality" },
+  { key: "equality", title: "Equality", description: "Every person deserves the same opportunity to learn, heal and thrive, regardless of background.", icon: "equality" },
   { key: "compassion", title: "Compassion", description: "We lead with empathy, listening first and acting with genuine care for every community we serve.", icon: "heart" },
   { key: "integrity", title: "Integrity", description: "We keep our promises, steward resources honestly and do what is right even when no one is watching.", icon: "shield" },
   { key: "accountability", title: "Accountability", description: "We are answerable to our communities, partners and supporters for every action and every shilling.", icon: "badge" },
-  { key: "sustainability", title: "Sustainability", description: "We build solutions that outlive us — programs communities can own, maintain and grow.", icon: "leaf" },
+  { key: "sustainability", title: "Sustainability", description: "We build solutions that outlive us. Programs communities can own, maintain and grow.", icon: "leaf" },
   { key: "community", title: "Community", description: "Lasting change is built with people, not for them. Communities shape every decision we make.", icon: "community" },
-  { key: "inclusion", title: "Inclusion", description: "We make room for everyone — women, children, elders and people with disabilities — at every table.", icon: "users" },
+  { key: "inclusion", title: "Inclusion", description: "We make room for everyone: women, children, elders and people with disabilities, at every table.", icon: "users" },
   { key: "empowerment", title: "Empowerment", description: "We equip people with skills, knowledge and confidence to transform their own futures.", icon: "sparkles" },
 ] as const

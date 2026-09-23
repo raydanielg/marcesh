@@ -16,11 +16,13 @@ import { Section } from "@/components/decorative"
 import { Reveal } from "@/components/reveal"
 import { ContactForm } from "@/components/forms/contact-form"
 import { site } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Contact Us",
-  description: `Get in touch with ${site.name} — ${site.location}, ${site.email}, ${site.phone}.`,
-}
+export const metadata: Metadata = pageMetadata({
+  title: "Contact Marcesh Foundation | Kibaha, Pwani, Tanzania",
+  description: `Get in touch with ${site.name}, an NGO based in ${site.location}. Email ${site.email} or call ${site.phone}.`,
+  path: "/contact",
+})
 
 const socialIcons = {
   facebook: FacebookIcon,
@@ -36,16 +38,16 @@ export default function ContactPage() {
       <PageHero
         eyebrow="Contact"
         title="We'd love to hear from you"
-        description="Questions, ideas, partnerships or support — reach out and a real person from our team will get back to you."
+        description="Questions, ideas, partnerships or support, reach out and a real person from our team will get back to you."
         breadcrumb={[{ label: "Home", href: "/" }, { label: "Contact" }]}
       />
       <Section>
         <div className="grid gap-10 lg:grid-cols-5 lg:gap-14">
           {/* Info panel */}
           <div className="flex flex-col gap-4 lg:col-span-2">
-            <Reveal className="rounded-2xl bg-deep p-7 text-deep-foreground">
+            <Reveal as="address" className="rounded-2xl bg-deep p-7 text-deep-foreground not-italic">
               <h2 className="font-display text-xl font-semibold text-white">{site.name}</h2>
-              <ul className="mt-6 flex flex-col gap-5 text-sm">
+              <ul className="mt-6 flex flex-col gap-5 text-sm not-italic">
                 <li className="flex items-start gap-3">
                   <span className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-white/10 text-brand">
                     <HugeiconsIcon icon={Location01Icon} strokeWidth={1.8} className="size-5" />
@@ -115,7 +117,7 @@ export default function ContactPage() {
             <div className="rounded-3xl border bg-card p-6 shadow-[0_20px_50px_-24px_rgb(0_0_0/0.18)] md:p-9">
               <h2 className="font-display text-xl font-semibold md:text-2xl">Send us a message</h2>
               <p className="mt-1.5 text-sm text-muted-foreground">
-                Fill in the form and we'll respond as soon as we can.
+                Fill in the form and we&rsquo;ll respond as soon as we can.
               </p>
               <div className="mt-7">
                 <ContactForm />

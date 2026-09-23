@@ -136,6 +136,9 @@ export function SiteFooter() {
             ))}
           </div>
         </div>
+        <p className="mt-4 text-center text-[11px] tracking-wide text-deep-foreground/40 sm:text-right">
+          Powered by {site.poweredBy}
+        </p>
       </div>
     </footer>
   )

@@ -2,11 +2,13 @@ import type { Metadata } from "next"
 import { PageHero } from "@/components/page-hero"
 import { Section } from "@/components/decorative"
 import { site } from "@/lib/data/site"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Terms of Use",
+export const metadata: Metadata = pageMetadata({
+  title: `Terms of Use | ${site.name}`,
   description: `Terms of use for the ${site.name} website.`,
-}
+  path: "/terms",
+})
 
 const sections = [
   {
@@ -15,7 +17,7 @@ const sections = [
   },
   {
     title: "2. About this website",
-    body: `This website presents the programs, projects and stories of ${site.name}. Some features — including the donation flow, event registration and form submissions — are demonstration features and do not process real transactions or transmit data to the foundation.`,
+    body: `This website presents the programs, projects and stories of ${site.name}. Some features, including the donation flow and form submissions, are demonstration features and do not process real transactions or transmit data to the foundation.`,
   },
   {
     title: "3. Use of content",

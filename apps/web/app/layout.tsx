@@ -8,6 +8,9 @@ import { SiteHeader } from "@/components/site-header"
 import { SiteFooter } from "@/components/site-footer"
 import { cn } from "@workspace/ui/lib/utils"
 import { site } from "@/lib/data/site"
+import { JsonLd } from "@/components/json-ld"
+import { WhatsAppButton } from "@/components/whatsapp-button"
+import { organizationSchema, websiteSchema } from "@/lib/seo"
 
 const inter = Inter({ subsets: ["latin"], variable: "--font-sans" })
 
@@ -20,7 +23,7 @@ const fraunces = Fraunces({
 export const metadata: Metadata = {
   metadataBase: new URL(site.url),
   title: {
-    default: `${site.name} — ${site.tagline}`,
+    default: `${site.name} | Education, Health & Community Development in Tanzania`,
     template: `%s | ${site.name}`,
   },
   description: site.description,
@@ -28,7 +31,7 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: site.name,
-    title: `${site.name} — ${site.tagline}`,
+    title: `${site.name} | ${site.tagline}`,
     description: site.description,
   },
 }
@@ -51,13 +54,28 @@ export default function RootLayout({
         >
           Skip to content
         </a>
+        {/* Marks JS availability before paint so reveal animations never
+            hide content when JavaScript is disabled (SEO/no-JS safe). */}
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `document.documentElement.classList.add('js')`,
+          }}
+        />
         <ThemeProvider>
           <TooltipProvider>
+            <JsonLd data={[organizationSchema(), websiteSchema()]} />
+            <a
+              href="#main"
+              className="sr-only z-[70] rounded-md bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground focus:not-sr-only focus:absolute focus:top-3 focus:left-3"
+            >
+              Skip to main content
+            </a>
             <SiteHeader />
             <main id="main" className="flex-1">
               {children}
             </main>
             <SiteFooter />
+            <WhatsAppButton />
           </TooltipProvider>
         </ThemeProvider>
       </body>

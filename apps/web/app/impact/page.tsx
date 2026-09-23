@@ -13,19 +13,21 @@ import { PageHero } from "@/components/page-hero"
 import { SectionHeading } from "@/components/section-heading"
 import { Reveal } from "@/components/reveal"
 import { CountUp } from "@/components/count-up"
-import { Section, Container } from "@/components/decorative"
+import { Section } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
 import { StoryCard } from "@/components/cards"
 import { stats, impactByYear, programDistribution } from "@/lib/data/stats"
 import { programs } from "@/lib/data/programs"
 import { stories } from "@/lib/data/stories"
 import { projects } from "@/lib/data/projects"
+import { pageMetadata } from "@/lib/seo"
 
-export const metadata: Metadata = {
-  title: "Our Impact",
+export const metadata: Metadata = pageMetadata({
+  title: "Our Impact | Marcesh Foundation",
   description:
-    "See the difference Marcesh Foundation makes — people reached, programs delivered and stories of change across Kibaha, Pwani.",
-}
+    "See the difference Marcesh Foundation makes: people reached, education and health programs delivered, and stories of change across Kibaha, Pwani, Tanzania.",
+  path: "/impact",
+})
 
 const programIcons = {
   education: SchoolIcon,
@@ -192,7 +194,7 @@ export default function ImpactPage() {
             <Reveal delay={120}>
               <p className="text-base leading-relaxed text-muted-foreground">
                 With {projects.length} tracked initiatives across four focus areas, each
-                project contributes measurable progress — from students equipped to households
+                project contributes measurable progress, from students equipped to households
                 supported.
               </p>
             </Reveal>

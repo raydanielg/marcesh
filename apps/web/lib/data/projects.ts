@@ -39,7 +39,7 @@ export const projects: Project[] = [
     summary:
       "A flagship education initiative recognising and supporting vulnerable students with certificates, learning materials and mentorship.",
     overview: [
-      "Restore a Child 2026 is Marcesh Foundation's flagship education campaign — a community-wide effort to keep vulnerable children in school and remind them that their dreams matter.",
+      "Restore a Child 2026 is Marcesh Foundation's flagship education campaign, a community-wide effort to keep vulnerable children in school and remind them that their dreams matter.",
       "Through certificate ceremonies, learning material support and mentorship, the initiative celebrates progress while addressing the practical barriers students face every day.",
     ],
     objectives: [
@@ -90,7 +90,7 @@ export const projects: Project[] = [
     summary:
       "Bringing health awareness and essential information directly to neighbourhoods through outreach days and education sessions.",
     overview: [
-      "The Community Health Outreach project brings practical health knowledge to people's doorsteps — focusing on prevention, early action and connecting families with local services.",
+      "The Community Health Outreach project brings practical health knowledge to people's doorsteps, focusing on prevention, early action and connecting families with local services.",
     ],
     objectives: [
       "Raise awareness of preventable health issues.",
@@ -283,7 +283,7 @@ export const projects: Project[] = [
     summary:
       "Regular volunteer visits that provide companionship, essential items and dignity to elderly residents.",
     overview: [
-      "Volunteer teams visit elderly residents regularly — bringing essential supplies, companionship and a reminder that they are not forgotten.",
+      "Volunteer teams visit elderly residents regularly, bringing essential supplies, companionship and a reminder that they are not forgotten.",
     ],
     objectives: [
       "Reduce isolation among elderly residents.",

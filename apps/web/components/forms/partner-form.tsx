@@ -48,7 +48,7 @@ export function PartnerForm() {
   if (done) {
     return (
       <FormSuccess
-        title="Partnership interest noted — on screen"
+        title="Partnership interest noted on screen"
         message="Your partnership preview is complete. Since this website currently runs without a backend, nothing has been sent yet. Please email marceshfoundation@gmail.com to confirm your partnership interest."
         onReset={() => setDone(false)}
       />
