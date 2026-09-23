@@ -26,7 +26,7 @@ export function CountUp({
     let raf = 0
     const observer = new IntersectionObserver(
       (entries) => {
-        if (!entries[0].isIntersecting) return
+        if (!entries[0]?.isIntersecting) return
         observer.disconnect()
         const start = performance.now()
         const tick = (now: number) => {

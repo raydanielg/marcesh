@@ -153,8 +153,8 @@ export default function ImpactPage() {
                     <div className="min-w-0 flex-1">
                       <h3 className="font-display font-semibold">{p.title}</h3>
                       <p className="truncate text-sm text-muted-foreground">
-                        {p.stats[0].value.toLocaleString()}
-                        {p.stats[0].suffix} {p.stats[0].label.toLowerCase()}
+                        {p.stats[0]!.value.toLocaleString()}
+                        {p.stats[0]!.suffix} {p.stats[0]!.label.toLowerCase()}
                       </p>
                     </div>
                     <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="size-4 shrink-0 text-muted-foreground transition-transform group-hover:translate-x-0.5" />

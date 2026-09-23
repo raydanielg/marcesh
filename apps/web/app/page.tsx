@@ -37,8 +37,8 @@ const programIcons = {
 } as const
 
 export default function HomePage() {
-  const featured = projects.find((p) => p.featured) ?? projects[0]
-  const featuredStory = stories[0]
+  const featured = projects.find((p) => p.featured) ?? projects[0]!
+  const featuredStory = stories[0]!
   const upcoming = events.filter((e) => !e.past).slice(0, 2)
 
   return (

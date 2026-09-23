@@ -18,7 +18,7 @@ export const metadata: Metadata = {
 }
 
 export default function NewsPage() {
-  const featured = news.find((n) => n.featured) ?? news[0]
+  const featured = news.find((n) => n.featured) ?? news[0]!
   const rest = news.filter((n) => n.slug !== featured.slug)
 
   return (

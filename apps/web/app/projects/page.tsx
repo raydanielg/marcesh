@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 }
 
 export default function ProjectsPage() {
-  const featured = projects.find((p) => p.featured) ?? projects[0]
+  const featured = projects.find((p) => p.featured) ?? projects[0]!
 
   return (
     <>
