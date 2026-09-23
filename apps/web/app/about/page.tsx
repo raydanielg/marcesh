@@ -25,16 +25,14 @@ import { SiteImage } from "@/components/site-image"
 import { Reveal } from "@/components/reveal"
 import { Section, DotsField } from "@/components/decorative"
 import { CtaSection } from "@/components/cta-section"
-import { TeamCard } from "@/components/cards"
 import { site, values } from "@/lib/data/site"
 import { pageMetadata } from "@/lib/seo"
 import { images } from "@/lib/data/images"
 import { programs } from "@/lib/data/programs"
-import { team } from "@/lib/data/team"
 
 export const metadata: Metadata = pageMetadata({
   title: "About Marcesh Foundation | Our Mission, Vision & Values",
-  description: `Learn about ${site.name}, an NGO in ${site.location} working for equal opportunities in education and health. Discover our vision, mission, values and team.`,
+  description: `Learn about ${site.name}, an NGO in ${site.location} working for equal opportunities in education and health. Discover our vision, mission, values and approach.`,
   path: "/about",
 })
 
@@ -294,28 +292,6 @@ export default function AboutPage() {
             </Reveal>
           ))}
         </div>
-      </Section>
-
-      {/* Team */}
-      <Section className="bg-warm">
-        <SectionHeading
-          eyebrow="Leadership"
-          title="The people behind the work"
-          description="A small team with a big commitment, supported by volunteers across the Pwani region."
-        />
-        <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-          {team.map((m, i) => (
-            <Reveal key={m.name} delay={i * 80}>
-              <TeamCard member={m} />
-            </Reveal>
-          ))}
-        </div>
-        <Reveal className="mt-10 text-center">
-          <Link href="/team" className={cn(buttonVariants({ variant: "outline", size: "lg" }))}>
-            Meet the Full Team
-            <HugeiconsIcon icon={ArrowRight01Icon} strokeWidth={2} className="size-4" />
-          </Link>
-        </Reveal>
       </Section>
 
       <CtaSection />

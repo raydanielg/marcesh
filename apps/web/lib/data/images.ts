@@ -22,8 +22,8 @@ export const images = {
   logo: img("/assets/logo/marcesh-logo.jpeg", "Marcesh Foundation logo"),
 
   hero: img(
-    "/assets/images/certificates.jpeg",
-    "Students and Marcesh Foundation volunteers holding certificates at the Restore a Child 2026 event in Kibaha"
+    "/assets/images/team-banner.jpeg",
+    "Marcesh Foundation team members at the Restore a Child 2026 event in Kibaha"
   ),
   heroAlt: img(
     "/assets/images/smiles.jpeg",
@@ -43,7 +43,10 @@ export const images = {
     "/assets/images/certificates.jpeg",
     "Students receiving certificates through a Marcesh Foundation education initiative"
   ),
-  health: img(undefined, "Community health outreach session"),
+  health: img(
+    "/assets/images/volunteers.jpeg",
+    "Marcesh Foundation volunteers at a community health outreach event"
+  ),
   community: img(
     "/assets/images/volunteers.jpeg",
     "Marcesh Foundation volunteers at a community development event"
@@ -66,11 +69,29 @@ export const images = {
   ),
 
   placeholders: {
-    project: img(undefined, "Project photo to be replaced"),
-    story: img(undefined, "Story photo to be replaced"),
-    news: img(undefined, "News photo to be replaced"),
-    event: img(undefined, "Event photo to be replaced"),
-    person: img(undefined, "Portrait photo to be replaced"),
-    gallery: img(undefined, "Gallery photo to be replaced"),
+    project: img(
+      "/assets/images/certificates.jpeg",
+      "Certificates presented during a Marcesh Foundation project"
+    ),
+    story: img(
+      "/assets/images/community-portrait.jpeg",
+      "A community member at a Marcesh Foundation outreach event"
+    ),
+    news: img(
+      "/assets/images/team-banner.jpeg",
+      "Marcesh Foundation team at the Restore a Child 2026 banner"
+    ),
+    event: img(
+      "/assets/images/volunteers.jpeg",
+      "Volunteers gathered at a Marcesh Foundation community event"
+    ),
+    person: img(
+      "/assets/images/community-portrait.jpeg",
+      "A Marcesh Foundation volunteer"
+    ),
+    gallery: img(
+      "/assets/images/smiles.jpeg",
+      "Smiling volunteers at a Marcesh Foundation event"
+    ),
   },
 } as const

@@ -13,7 +13,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/impact",
     "/stories",
     "/gallery",
-    "/team",
     "/get-involved",
     "/donate",
     "/volunteer",
