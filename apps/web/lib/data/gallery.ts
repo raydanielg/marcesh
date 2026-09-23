@@ -17,16 +17,16 @@ export const galleryCategories: ("All" | GalleryCategory)[] = [
 ]
 
 export const gallery: GalleryItem[] = [
-  { id: "g1", image: { ...images.education, caption: "Certificate ceremony at Restore a Child 2026" }, category: "Education" },
-  { id: "g2", image: { ...images.about, caption: "The team at Restore a Child 2026" }, category: "Community" },
-  { id: "g3", image: { ...images.support, caption: "Volunteers sharing a lighter moment" }, category: "Community" },
-  { id: "g4", image: { ...images.community, caption: "Volunteer team at a community event" }, category: "Community" },
-  { id: "g5", image: { ...images.aboutSecondary, caption: "A volunteer at the pledge wall" }, category: "Community" },
-  { id: "g6", image: { ...images.placeholders.gallery, caption: "Health outreach session" }, category: "Health" },
-  { id: "g7", image: { ...images.placeholders.gallery, caption: "School supplies distribution" }, category: "Projects" },
-  { id: "g8", image: { ...images.placeholders.gallery, caption: "Community workshop" }, category: "Community" },
-  { id: "g9", image: { ...images.placeholders.gallery, caption: "Mentorship session" }, category: "Education" },
-  { id: "g10", image: { ...images.placeholders.gallery, caption: "Health awareness day" }, category: "Health" },
-  { id: "g11", image: { ...images.placeholders.gallery, caption: "Tree planting day" }, category: "Projects" },
-  { id: "g12", image: { ...images.placeholders.gallery, caption: "Community gathering" }, category: "Community" },
+  { id: "g1", image: { ...images.education, caption: "Learning materials shared with students" }, category: "Education" },
+  { id: "g2", image: { ...images.heroAlt, caption: "Certificate of appreciation at Restore a Child 2026" }, category: "Education" },
+  { id: "g3", image: { ...images.support, caption: "Donated supplies ready for families" }, category: "Projects" },
+  { id: "g4", image: { ...images.community, caption: "Students gathered for the community event" }, category: "Community" },
+  { id: "g5", image: { ...images.aboutSecondary, caption: "Our facilitator between sessions" }, category: "Community" },
+  { id: "g6", image: { ...images.health, caption: "A lively health awareness session" }, category: "Health" },
+  { id: "g7", image: { ...images.extra[0]!, caption: "Students outside the event hall" }, category: "Community" },
+  { id: "g8", image: { ...images.team[2], caption: "Volunteers marking a good day" }, category: "Community" },
+  { id: "g9", image: { ...images.extra[1]!, caption: "Listening during a mentorship session" }, category: "Education" },
+  { id: "g10", image: { ...images.cta, caption: "Together under the trees" }, category: "Community" },
+  { id: "g11", image: { ...images.extra[2]!, caption: "Volunteer duo at Restore a Child 2026" }, category: "Projects" },
+  { id: "g12", image: { ...images.extra[3]!, caption: "A volunteer at the pledge wall" }, category: "Community" },
 ]

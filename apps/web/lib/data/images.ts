@@ -26,72 +26,80 @@ export const images = {
     "Marcesh Foundation team members at the Restore a Child 2026 event in Kibaha"
   ),
   heroAlt: img(
-    "/assets/images/smiles.jpeg",
-    "Two smiling Marcesh Foundation volunteers at a community event"
+    "/assets/images/certificate-award.jpeg",
+    "Marcesh Foundation volunteers holding a certificate of appreciation at Restore a Child 2026"
   ),
 
   about: img(
-    "/assets/images/team-banner.jpeg",
-    "Marcesh Foundation team members in front of the Restore a Child 2026 banner"
+    "/assets/images/team-trio.jpeg",
+    "Three Marcesh Foundation team members in front of the Restore a Child 2026 banner"
   ),
   aboutSecondary: img(
-    "/assets/images/community-portrait.jpeg",
-    "A Marcesh Foundation volunteer at a community outreach event"
+    "/assets/images/facilitator-smile.jpeg",
+    "A smiling Marcesh Foundation facilitator holding a notebook during a community session"
   ),
 
   education: img(
-    "/assets/images/certificates.jpeg",
-    "Students receiving certificates through a Marcesh Foundation education initiative"
+    "/assets/images/book-distribution.jpeg",
+    "Students and volunteers holding learning materials distributed by Marcesh Foundation"
   ),
   health: img(
-    "/assets/images/volunteers.jpeg",
-    "Marcesh Foundation volunteers at a community health outreach event"
+    "/assets/images/facilitator-ball.jpeg",
+    "A Marcesh Foundation facilitator leading a community health awareness session"
   ),
   community: img(
-    "/assets/images/volunteers.jpeg",
-    "Marcesh Foundation volunteers at a community development event"
+    "/assets/images/students-gathering.jpeg",
+    "Schoolchildren gathered for a Marcesh Foundation community event in Kibaha"
   ),
   support: img(
-    "/assets/images/smiles.jpeg",
-    "Smiling community members supported by Marcesh Foundation"
+    "/assets/images/donation-supplies.jpeg",
+    "Marcesh Foundation volunteers with donated supplies for families in need"
   ),
 
   team: [
-    img("/assets/images/team-banner.jpeg", "Marcesh Foundation team"),
-    img("/assets/images/volunteers.jpeg", "Marcesh Foundation volunteers"),
-    img("/assets/images/community-portrait.jpeg", "Marcesh Foundation volunteer"),
-    img("/assets/images/smiles.jpeg", "Marcesh Foundation volunteers"),
+    img("/assets/images/team-banner.jpeg", "Marcesh Foundation team at Restore a Child 2026"),
+    img("/assets/images/team-trio.jpeg", "Marcesh Foundation team members"),
+    img("/assets/images/volunteer-duo.jpeg", "Marcesh Foundation volunteers at Restore a Child 2026"),
+    img("/assets/images/facilitator-smile.jpeg", "A Marcesh Foundation facilitator"),
   ],
 
   cta: img(
-    "/assets/images/volunteers.jpeg",
-    "Marcesh Foundation volunteers working together"
+    "/assets/images/students-seated.jpeg",
+    "Students seated together at a Marcesh Foundation community gathering"
   ),
+
+  extra: [
+    img("/assets/images/students-outdoor.jpeg", "Students gathered outdoors during a Marcesh Foundation event"),
+    img("/assets/images/students-gathering-alt.jpeg", "Schoolchildren listening during a Marcesh Foundation session"),
+    img("/assets/images/volunteer-duo.jpeg", "Two Marcesh Foundation volunteers celebrating"),
+    img("/assets/images/community-portrait.jpeg", "A Marcesh Foundation volunteer at a community event"),
+    img("/assets/images/certificates.jpeg", "Certificates presented at Restore a Child 2026"),
+  ] as SiteImage[],
 
   placeholders: {
     project: img(
-      "/assets/images/certificates.jpeg",
-      "Certificates presented during a Marcesh Foundation project"
+      "/assets/images/donation-supplies.jpeg",
+      "Donated supplies gathered for a Marcesh Foundation project"
     ),
     story: img(
-      "/assets/images/community-portrait.jpeg",
+      "/assets/images/facilitator-smile.jpeg",
       "A community member at a Marcesh Foundation outreach event"
     ),
     news: img(
-      "/assets/images/team-banner.jpeg",
+      "/assets/images/team-trio.jpeg",
       "Marcesh Foundation team at the Restore a Child 2026 banner"
     ),
     event: img(
-      "/assets/images/volunteers.jpeg",
-      "Volunteers gathered at a Marcesh Foundation community event"
+      "/assets/images/students-gathering.jpeg",
+      "Students gathered at a Marcesh Foundation community event"
     ),
     person: img(
-      "/assets/images/community-portrait.jpeg",
-      "A Marcesh Foundation volunteer"
+      "/assets/images/facilitator-ball.jpeg",
+      "A Marcesh Foundation facilitator"
     ),
     gallery: img(
-      "/assets/images/smiles.jpeg",
-      "Smiling volunteers at a Marcesh Foundation event"
+      "/assets/images/students-outdoor.jpeg",
+      "Students at a Marcesh Foundation event"
     ),
   },
 } as const
